@@ -20,6 +20,11 @@
             'jquery',
             'jquery.ui.widget'
         ], factory);
+    } else if (typeof exports === 'object') {
+        // Browserify support
+        var $ = require('jquery');
+        var ui = require('jquery-ui/widget');
+        factory($);
     } else {
         // Browser globals:
         factory(window.jQuery);
